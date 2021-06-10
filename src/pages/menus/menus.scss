@@ -1,0 +1,12 @@
+// .menus {
+//   background: powderblue;
+// }
+
+.menus {
+  background: white;
+  transition: all 0.5s ease;
+}
+
+.menus.active {
+  background: orangered;
+}
