@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll'
 import './Nav.scss';
 
 const Nav = () => {
@@ -6,9 +7,9 @@ const Nav = () => {
     <nav className="header">
       <h1 className="header-txt">RESTAURANT</h1>
       <div className="header-btns">
-        <button>About</button>
-        <button>Menus</button>
-        <button>Contact</button>
+        <Link to="about" smooth={true} duration={1000}><p className="header-btn">About</p></Link>
+        <Link to="menus" smooth={true} duration={1000}><p className="header-btn">Menus</p></Link>
+        <Link to="contact" smooth={true} duration={1000}><p className="header-btn">Contact</p></Link>
       </div>
     </nav>
   )
