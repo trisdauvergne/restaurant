@@ -1,3 +1,4 @@
-.header{min-height:5rem;display:flex;flex-direction:column;border:1px dashed #9acd32}.header-txt{align-self:center;margin:auto}.header-btns{position:fixed;top:5rem;border:1px dashed salmon;align-self:flex-start;display:flex;flex-direction:column}.header-btn{margin:0 0 1rem 1rem}
+.header{min-height:5rem;display:flex;flex-direction:column;border:1px dashed #9acd32}.header-txt{align-self:center;margin:auto}.header-btns{position:fixed;top:5rem;left:5rem;border:1px dashed salmon;align-self:flex-start;display:flex;flex-direction:column}.header-btn{margin:0 0 1rem 1rem}
+.text-box{width:20vw}
 .menus{background:#fff;transition:all .5s ease}.menus.active{background:#ff4500}
 *{margin:0;padding:0;box-sizing:border-box}section{height:100vh}
