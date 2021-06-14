@@ -1,0 +1,12 @@
+.firstSection,
+.secondSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.secondSection {
+  background-color: #000;
+  color: #fff;
+}
