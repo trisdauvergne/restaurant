@@ -19,7 +19,7 @@ const Contact = () => {
   useEffect(() => {
     if (sectionInView) {
       console.log('in view');
-      controls.start("visible");
+      controls.start('visible');
     }
   }, [controls, sectionInView]);
 
