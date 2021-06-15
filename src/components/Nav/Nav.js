@@ -18,26 +18,28 @@ const Nav = () => {
 
   const btnVariants = { 
     hidden: { y: 0 },
-    visible: { y: -100, transition: { duration: 0.3 }}
+    visible: { y: -90, transition: { duration: 0.3 }}
   }
 
   const animateNav = () => {
     if(window.scrollY >= 660) {
       headerControls.start('hidden');
+      btnControls.start('visible');
     } else if (window.scrollY <= 660) {
       headerControls.start('visible');
+      btnControls.start('hidden');
     }
   }
 
-  const moveBtns = () => {
-    if(window.scrollY >= 660) {
-      console.log('moveBtns function triggered');
-      btnControls.start('visible');
-    }
-  }
+  // const moveBtns = () => {
+  //   if(window.scrollY >= 660) {
+  //     console.log('moveBtns function triggered');
+  //     btnControls.start('visible');
+  //   }
+  // }
 
   window.addEventListener('scroll', animateNav);
-  window.addEventListener('scroll', moveBtns);
+  // window.addEventListener('scroll', moveBtns);
 
 
   return (
