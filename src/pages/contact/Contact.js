@@ -10,7 +10,7 @@ const Contact = () => {
   });
 
   const sectionVariants = {
-    visible: { opacity: 1, backgroundColor: 'pink', transition: { duration: 1 } },
+    visible: { opacity: 1, backgroundColor: 'pink', transition: { duration: 5 } },
     hidden: { opacity: 0,
     backgroundColor: 'red'}
   };

@@ -5,7 +5,7 @@ import './Nav.scss';
 const Nav = () => {
   return (
     <nav className="header">
-      <h1 className="header-txt">RESTAURANT</h1>
+      <h1 className="header-heading">RESTAURANT</h1>
       <div className="header-btns">
         <Link to="about" smooth={true} duration={1000}><p className="header-btn">About</p></Link>
         <Link to="menus" smooth={true} duration={1000}><p className="header-btn">Menus</p></Link>
