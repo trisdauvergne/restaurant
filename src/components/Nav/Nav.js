@@ -5,35 +5,49 @@ import { motion, useAnimation } from 'framer-motion';
 import './Nav.scss';
 
 const Nav = () => {
-  const controls = useAnimation();
+  const headerControls = useAnimation();
+  const btnControls = useAnimation();
   // const [ headerRef, headerInView ] = useInView({
   //   triggerOnce: false,
   // });
 
   const nameVariants = { 
     visible: { opacity: 1 },
-    hidden: { opacity: 0, transition: { duration: 1 }}
+    hidden: { opacity: 0, transition: { duration: 0.3 }}
   }
 
-  const hideTitle = () => {
+  const btnVariants = { 
+    hidden: { y: 0 },
+    visible: { y: -100, transition: { duration: 0.3 }}
+  }
+
+  const animateNav = () => {
     if(window.scrollY >= 660) {
-      console.log('window at 660');
-      controls.start('hidden');
+      headerControls.start('hidden');
     } else if (window.scrollY <= 660) {
-      controls.start('visible');
+      headerControls.start('visible');
     }
   }
 
-  window.addEventListener('scroll', hideTitle);
+  const moveBtns = () => {
+    if(window.scrollY >= 660) {
+      console.log('moveBtns function triggered');
+      btnControls.start('visible');
+    }
+  }
+
+  window.addEventListener('scroll', animateNav);
+  window.addEventListener('scroll', moveBtns);
+
 
   return (
     <nav className="header">
-      <motion.h1 className="header-heading" variants={nameVariants} animate={controls} initial="visible">RESTAURANT</motion.h1>
-      <div className="header-btns">
+      <motion.h1 className="header-heading" variants={nameVariants} animate={headerControls} initial="visible">RESTAURANT</motion.h1>
+      <motion.div className="header-btns" variants={btnVariants} animate={btnControls} initial="hidden">
         <Link to="about" smooth={true} duration={1000}><p className="header-btn">About</p></Link>
         <Link to="menus" smooth={true} duration={1000}><p className="header-btn">Menus</p></Link>
         <Link to="contact" smooth={true} duration={1000}><p className="header-btn">Contact</p></Link>
-      </div>
+      </motion.div>
     </nav>
   )
 }
