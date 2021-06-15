@@ -1,13 +1,15 @@
 .header {
   min-height: 5rem;
-  width: 100vw;
+  max-width: 1024px;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  border: 2px dashed magenta;
-  justify-content: center;
+  // border: 2px dashed magenta;
+  z-index: 2;
 }
 
 .header-heading {

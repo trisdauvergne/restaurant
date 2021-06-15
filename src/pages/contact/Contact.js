@@ -7,10 +7,11 @@ const Contact = () => {
   const controls = useAnimation();
   const [ sectionRef, sectionInView ] = useInView({
     triggerOnce: false,
+    threshold: 0.1,
   });
 
   const sectionVariants = {
-    visible: { opacity: 1, backgroundColor: 'pink', transition: { duration: 5 } },
+    visible: { opacity: 1, backgroundColor: 'pink', transition: { duration: 2 } },
     hidden: { opacity: 0,
     backgroundColor: 'red'}
   };
