@@ -29,8 +29,10 @@ const Menus = () => {
 
   useEffect(() => {
     console.log('usedeffect');
-    console.log(process.env.REACT_APP_SPACE_ID);
-    console.log(process.env.REACT_APP_ACCESS_TOKEN);
+    console.log('from process.env:', process.env.REACT_APP_SPACE_ID);
+    console.log('from process.env:', process.env.REACT_APP_ACCESS_TOKEN);
+    console.log('from variables in menus.js:', SPACE_ID);
+    console.log('from variables in menus.js:', ACCESS_TOKEN);
     window.fetch(`https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/`, {
       method: "POST",
       headers: {
