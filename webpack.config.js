@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
  
 module.exports = {
   // output is where the files should be sent when they've been bundled with webpack
@@ -37,5 +38,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin(), new Dotenv()],
 };

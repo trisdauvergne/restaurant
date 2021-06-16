@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import {
   motion,
   useAnimation,
@@ -55,13 +56,16 @@ const Nav = () => {
       <motion.h1
       className="header-heading"
       initial={{opacity: 1}}
-      animate={{opacity: 0}}
+      animate={{opacity: 0, transition: { duration: 3 }}}
       >RESTAURANT
       </motion.h1>
       <div className="header-btns">
-        <Link to="about" smooth={true} duration={1000}><p className="header-btn">About</p></Link>
+        {/* <Link to="about" smooth={true} duration={1000}><p className="header-btn">About</p></Link>
         <Link to="menus" smooth={true} duration={1000}><p className="header-btn">Menus</p></Link>
-        <Link to="contact" smooth={true} duration={1000}><p className="header-btn">Contact</p></Link>
+        <Link to="contact" smooth={true} duration={1000}><p className="header-btn">Contact</p></Link> */}
+        <Link to="/about"><p className="header-btn">About</p></Link>
+        <Link to="/menus"><p className="header-btn">Menus</p></Link>
+        <Link to="/contact"><p className="header-btn">Contact</p></Link>
       </div>
     </nav>
   )
