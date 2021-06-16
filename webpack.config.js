@@ -38,5 +38,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin(), new Dotenv()],
+  plugins: [new MiniCssExtractPlugin(), new Dotenv({
+    systemvars: true,
+  })],
 };
