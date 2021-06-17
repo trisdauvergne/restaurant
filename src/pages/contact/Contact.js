@@ -19,9 +19,9 @@ const Contact = () => {
       y: '0vh',
       opacity: 1,
       transition: {
-        duration: 2,
+        duration: 3,
         // ease: 'easeInOut',
-        delayChildren: 1
+        delayChildren: 5
       }
     },
     exit: {
@@ -39,6 +39,9 @@ const Contact = () => {
     },
     visible: {
       opacity: 1,
+      transition: {
+        duration: 2
+      }
     }
   }
   
