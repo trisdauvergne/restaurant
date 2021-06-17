@@ -106,10 +106,30 @@ const Menus = () => {
 
   // window.addEventListener('scroll', changeBackground);
 
+  const containerVariants = {
+    hidden: {
+      y: '100vh',
+      opacity: 0,
+    },
+    visible: {
+      y: '0vh',
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+        delay: 1.5
+      },
+    },
+    exit: {
+      y: '-100vh',
+      transition: {
+        ease: 'easeInOut',
+        duration: 2
+      }
+    }
+  }
+
   return (
-    <motion.section className={menu ? "menus active" : "menus"} id="menus"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}>
+    <motion.section id="menus" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <motion.h1 initial={{ x: 0 }} animate={{ x: 500 }} transition={{ type: 'tween', duration: 5 }}>
         Menus page
       </motion.h1>
