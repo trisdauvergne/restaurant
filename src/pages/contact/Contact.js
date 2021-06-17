@@ -15,7 +15,9 @@ const Contact = () => {
       y: '0vh',
       opacity: 1,
       transition: {
-        duration: 2
+        duration: 2,
+        ease: 'easeInOut',
+        delayChildren: 1
       }
     },
     hidden: {
@@ -30,6 +32,15 @@ const Contact = () => {
       }
     }
   };
+
+  const childVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    }
+  }
   
 
   // useEffect(() => {
@@ -40,10 +51,10 @@ const Contact = () => {
   // }, [controls, sectionInView]);
 
   return (
-    <motion.section id="contact" variants={sectionVariants} animate="visible" initial="hidden">
-      <h1>Contact page</h1>
-      <p>Phone number</p>
-      <p>Email</p>
+    <motion.section className="contact" id="contact" variants={sectionVariants} animate="visible" initial="hidden">
+      <motion.h1 variants={childVariants}>Contact page</motion.h1>
+      <motion.p variants={childVariants}>Phone number</motion.p>
+      <motion.p variants={childVariants}>Email</motion.p>
     </motion.section>
   )
 }

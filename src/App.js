@@ -23,7 +23,7 @@ export function App() {
             <Route path="/contact" component={Contact} />
           </Switch>
         </AnimatePresence>
-        <h1>Checking stuff is still working { new Date().toString() }</h1>
+        {/* <h1>Checking stuff is still working { new Date().toString() }</h1> */}
       </div>
     // </Router>
   )
