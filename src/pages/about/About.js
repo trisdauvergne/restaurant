@@ -5,7 +5,7 @@ import './about.scss';
 const About = () => {
   const containerVariants = {
     hidden: {
-      // y: '100vh',
+      y: '100vh',
       opacity: 0,
     },
     visible: {

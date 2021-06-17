@@ -129,7 +129,7 @@ const Menus = () => {
   }
 
   return (
-    <motion.section id="menus" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
+    <motion.section className="menus" id="menus" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <motion.h1 initial={{ x: 0 }} animate={{ x: 500 }} transition={{ type: 'tween', duration: 5 }}>
         Menus page
       </motion.h1>

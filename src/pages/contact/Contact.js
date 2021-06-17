@@ -11,18 +11,18 @@ const Contact = () => {
   // });
 
   const sectionVariants = {
+    hidden: {
+      opacity: 1,
+      y: '100vh',
+    },
     visible: {
       y: '0vh',
       opacity: 1,
       transition: {
         duration: 2,
-        ease: 'easeInOut',
+        // ease: 'easeInOut',
         delayChildren: 1
       }
-    },
-    hidden: {
-      opacity: 1,
-      y: '100vh',
     },
     exit: {
       y: '-100vh',
@@ -51,7 +51,7 @@ const Contact = () => {
   // }, [controls, sectionInView]);
 
   return (
-    <motion.section className="contact" id="contact" variants={sectionVariants} animate="visible" initial="hidden">
+    <motion.section className="contact" id="contact" variants={sectionVariants} animate="visible" initial="hidden" exit="exit">
       <motion.h1 variants={childVariants}>Contact page</motion.h1>
       <motion.p variants={childVariants}>Phone number</motion.p>
       <motion.p variants={childVariants}>Email</motion.p>
