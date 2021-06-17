@@ -94,17 +94,17 @@ const Menus = () => {
     setDinnerItems(dinnerMenu);
   }
 
-  // using window.scrollY to trigger functions
-  const changeBackground = () => {
-    // console.log(window.scrollY);
-    if(window.scrollY >= 550) {
-      setMenu(true);
-    } else {
-      setMenu(false);
-    }
-  }
+  // // using window.scrollY to trigger functions
+  // const changeBackground = () => {
+  //   // console.log(window.scrollY);
+  //   if(window.scrollY >= 550) {
+  //     setMenu(true);
+  //   } else {
+  //     setMenu(false);
+  //   }
+  // }
 
-  window.addEventListener('scroll', changeBackground);
+  // window.addEventListener('scroll', changeBackground);
 
   return (
     <motion.section className={menu ? "menus active" : "menus"} id="menus"
