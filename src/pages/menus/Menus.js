@@ -25,14 +25,11 @@ const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
 
 const Menus = () => {
   const [menu, setMenu] = useState(false);
-  const [page, setPage] = useState(null);
+  const [menus, setMenus] = useState(null);
+  const [lunchItems, setLunchItems] = useState(null);
+  const [dinnerItems, setDinnerItems] = useState(null);
 
   useEffect(() => {
-    console.log('usedeffect');
-    console.log('from process.env:', process.env.REACT_APP_SPACE_ID);
-    console.log('from process.env:', process.env.REACT_APP_ACCESS_TOKEN);
-    console.log('from variables in menus.js:', SPACE_ID);
-    console.log('from variables in menus.js:', ACCESS_TOKEN);
     window.fetch(`https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/`, {
       method: "POST",
       headers: {
@@ -46,16 +43,58 @@ const Menus = () => {
       if (errors) {
         console.error(errors);
       }
-      setPage(data.restaurantMenuCollection.items);
+      setMenus(data.restaurantMenuCollection.items);
     });
   }, []);
 
-  if(!page) {
-    return 'Loading...';
-  } else {
-    console.log(page);
+  useEffect(() => {
+    if(!menus) {
+      return 'No menus yet...';
+    } else {
+      // console.log(menus);
+      lunchSorter();
+      dinnerSorter();
+    }
+  }, [menus]);
+
+  useEffect(() => {
+    if(!lunchItems) {
+      return 'No lunch items yet...';
+    } else {
+      console.log('in useEffect for lunchItems', lunchItems);
+    }
+  }, [lunchItems]);
+
+  useEffect(() => {
+    if(!dinnerItems) {
+      return 'No dinner items yet...';
+    } else {
+      // console.log('in useEffect for dinnerItems', dinnerItems);
+    }
+  }, [dinnerItems]);
+
+  const lunchSorter = () => {
+    let lunchMenu = [];
+    menus.forEach(option => {
+      if(option.menuOption.includes('Lunch')) {
+        lunchMenu.push(option);
+      }
+    });
+    setLunchItems(lunchMenu);
+
   }
 
+  const dinnerSorter = () => {
+    let dinnerMenu = [];
+    menus.forEach(option => {
+      if(option.menuOption.includes('Dinner')) {
+        dinnerMenu.push(option);
+      }
+    });
+    setDinnerItems(dinnerMenu);
+  }
+
+  // using window.scrollY to trigger functions
   const changeBackground = () => {
     // console.log(window.scrollY);
     if(window.scrollY >= 550) {
@@ -74,8 +113,8 @@ const Menus = () => {
       <motion.h1 initial={{ x: 0 }} animate={{ x: 500 }} transition={{ type: 'tween', duration: 5 }}>
         Menus page
       </motion.h1>
-      <LunchMenu />
-      <DinnerMenu />
+      <LunchMenu menu={lunchItems} />
+      <DinnerMenu menu={dinnerItems} />
       <DrinksMenu />
     </motion.section>
   )
