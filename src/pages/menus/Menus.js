@@ -60,7 +60,7 @@ const Menus = () => {
     if(!lunchItems) {
       return 'No lunch items yet...';
     } else {
-      console.log('in useEffect for lunchItems', lunchItems);
+      // console.log('in useEffect for lunchItems', lunchItems);
     }
   }, [lunchItems]);
 
@@ -128,8 +128,15 @@ const Menus = () => {
   }
 
   return (
-    <motion.section className="menus" id="menus" variants={containerVariants} initial="hidden" animate="visible" exit="exit">
-      <motion.h1 initial={{ x: 0 }} animate={{ x: 500 }} transition={{ type: 'tween', duration: 5 }}>
+    <motion.section
+    className="menus"
+    id="menus"
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+    exit="exit">
+      <motion.h1
+      className="menus-heading">
         Menus page
       </motion.h1>
       <LunchMenu menu={lunchItems} />

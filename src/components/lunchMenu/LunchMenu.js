@@ -8,7 +8,7 @@ const LunchMenu = ({menu}) => {
 
   return (
     <article className="lunch-section">
-      <h3>Lunch Menu</h3>
+      <h1>Lunch Menu</h1>
       <motion.button onClick={() => setMenuVisible(!menuVisible)} whileHover={{scale: 4, originX: 0, transition: {duration: 0.3, yoyo: Infinity}}}>View</motion.button>
       {menuVisible && menu && menu.map(item => 
       <>

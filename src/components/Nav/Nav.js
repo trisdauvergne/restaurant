@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import { Link } from 'react-scroll';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Nav.scss';
 
 const Nav = () => {
@@ -37,36 +37,84 @@ const Nav = () => {
       transition: {
         yoyo: Infinity,
         duration: 0.8,
-      }
+      },
+      opacity: 1,
     },
     clicked: {
       scale: 0.9
+    },
+    initial: {
+      opacity: 1,
+      y: 'Ovh'
+    },
+    animation: {
+      opacity: 0.9,
+      y: '-8vh',
+      transition: {
+        delay: 5,
+        duration: 2,
+      }
     }
   };
 
+  const restaurantNameVariants = {
+    initial: {
+      opacity: 1,
+      y: '0vh'
+    },
+    animation: {
+      opacity: 0,
+      y: '-10vh',
+      transition: {
+        delay: 1,
+        duration: 5,
+      }
+    }
+  }
+
   return (
     <nav className="header">
-      <motion.h1
-      className="header-heading"
-      initial={{opacity: 1}}
-      animate={{opacity: 0, transition: { duration: 3 }}}
-      >RESTAURANT
-      </motion.h1>
+      <AnimatePresence>
+        <motion.h1
+        className="header-heading"
+        variants={restaurantNameVariants}
+        initial="initial"
+        animate="animation"
+        >RESTAURANT NAME
+        </motion.h1>
+      </AnimatePresence>
       <div className="header-btns">
         <Link to="/about">
           <motion.p
           className="header-btn"
           variants={pVariants}
           whileHover="hovering"
-          whileTap="clicked">
+          whileTap="clicked"
+          initial="initial"
+          animate="animation">
             About
           </motion.p>
         </Link>
         <Link to="/menus">
-          <motion.p className="header-btn" variants={pVariants} whileHover="hovering" whileTap="clicked">Menus</motion.p>
+          <motion.p
+          className="header-btn"
+          variants={pVariants}
+          whileHover="hovering"
+          whileTap="clicked"
+          initial="initial"
+          animate="animation">
+            Menus
+          </motion.p>
         </Link>
         <Link to="/contact">
-          <motion.p className="header-btn" variants={pVariants} whileHover="hovering" whileTap="clicked">Contact</motion.p>
+          <motion.p className="header-btn"
+          variants={pVariants}
+          whileHover="hovering"
+          whileTap="clicked"
+          initial="initial"
+          animate="animation">
+            Contact
+          </motion.p>
         </Link>
       </div>
     </nav>
