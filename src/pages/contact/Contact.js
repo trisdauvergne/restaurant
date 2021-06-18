@@ -19,16 +19,16 @@ const Contact = () => {
       y: '0vh',
       opacity: 1,
       transition: {
-        duration: 3,
-        // ease: 'easeInOut',
-        delayChildren: 5
+        duration: 1.5,
+        ease: 'easeInOut',
+        delayChildren: 3
       }
     },
     exit: {
       y: '-100vh',
       transition: {
         ease: 'easeInOut',
-        duration: 2
+        duration: 1.5
       }
     }
   };
@@ -58,6 +58,9 @@ const Contact = () => {
       <motion.h1 variants={childVariants}>Contact page</motion.h1>
       <motion.p variants={childVariants}>Phone number</motion.p>
       <motion.p variants={childVariants}>Email</motion.p>
+      <div>
+        <h3>Test component</h3>
+      </div>
     </motion.section>
   )
 }

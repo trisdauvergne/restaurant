@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
 // import { Link } from 'react-scroll';
 import { Link } from 'react-router-dom';
-import {
-  motion,
-  useAnimation,
-  useViewportScroll, 
-  useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './Nav.scss';
 
 const Nav = () => {
@@ -35,23 +31,20 @@ const Nav = () => {
 
   // window.addEventListener('scroll', animateNav);
 
-  // Version 2
-  const { scrollYProgress } = useViewportScroll();
+  const pVariants = {
+    hovering: {
+      scale: 1.9,
+      transition: {
+        yoyo: Infinity,
+        duration: 0.8,
+      }
+    },
+    clicked: {
+      scale: 0.9
+    }
+  };
 
   return (
-    // // Version 1
-    // <nav className="header">
-    //   <motion.h1 className="header-heading"
-    //   variants={nameVariants}
-    //   animate={{ opacity: 0, transition: { duration: 0.5 } }}
-    //   initial={{ opacity: 1}}>RESTAURANT</motion.h1>
-    //   <motion.div className="header-btns" variants={btnVariants} animate={btnControls} initial="hidden">
-    //     <Link to="about" smooth={true} duration={1000}><p className="header-btn">About</p></Link>
-    //     <Link to="menus" smooth={true} duration={1000}><p className="header-btn">Menus</p></Link>
-    //     <Link to="contact" smooth={true} duration={1000}><p className="header-btn">Contact</p></Link>
-    //   </motion.div>
-    // </nav>
-    // Version 2
     <nav className="header">
       <motion.h1
       className="header-heading"
@@ -60,12 +53,21 @@ const Nav = () => {
       >RESTAURANT
       </motion.h1>
       <div className="header-btns">
-        {/* <Link to="about" smooth={true} duration={1000}><p className="header-btn">About</p></Link>
-        <Link to="menus" smooth={true} duration={1000}><p className="header-btn">Menus</p></Link>
-        <Link to="contact" smooth={true} duration={1000}><p className="header-btn">Contact</p></Link> */}
-        <Link to="/about"><p className="header-btn">About</p></Link>
-        <Link to="/menus"><p className="header-btn">Menus</p></Link>
-        <Link to="/contact"><p className="header-btn">Contact</p></Link>
+        <Link to="/about">
+          <motion.p
+          className="header-btn"
+          variants={pVariants}
+          whileHover="hovering"
+          whileTap="clicked">
+            About
+          </motion.p>
+        </Link>
+        <Link to="/menus">
+          <motion.p className="header-btn" variants={pVariants} whileHover="hovering" whileTap="clicked">Menus</motion.p>
+        </Link>
+        <Link to="/contact">
+          <motion.p className="header-btn" variants={pVariants} whileHover="hovering" whileTap="clicked">Contact</motion.p>
+        </Link>
       </div>
     </nav>
   )

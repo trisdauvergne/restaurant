@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LunchMenu from '../../components/lunchMenu/LunchMenu';
 import DinnerMenu from '../../components/dinnerMenu/DinnerMenu';
-import DrinksMenu from '../../components/drinksMenu/DrinksMenu';
 import { motion } from 'framer-motion';
 import './menus.scss';
 
@@ -135,7 +134,6 @@ const Menus = () => {
       </motion.h1>
       <LunchMenu menu={lunchItems} />
       <DinnerMenu menu={dinnerItems} />
-      <DrinksMenu />
     </motion.section>
   )
 }

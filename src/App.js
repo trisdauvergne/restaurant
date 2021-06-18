@@ -15,7 +15,7 @@ export function App() {
     // <Router>
       <div>
         <Nav />
-        <AnimatePresence>
+        <AnimatePresence initial={false} exitBeforeEnter>
           <Switch location={location} key={location.key}>
             <Route path ="/" exact component={Welcome} />
             <Route path="/about" component={About} />
