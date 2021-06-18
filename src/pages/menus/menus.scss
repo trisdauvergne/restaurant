@@ -8,14 +8,23 @@
   background-repeat: no-repeat;
   background-size: 100vw contain;
   background-position: center;
-  padding-top: 10rem;
+  padding-top: 8rem;
   display: flex;
   flex-direction: column;
 }
 
 .menus-heading {
   text-align: center;
-  font-size: 5rem;
+  font-size: 4rem;
   color: rgb(221, 82, 82);
 }
 
+@media only screen and (max-width: 522px) {
+  .menus {
+    padding-top: 6rem;
+  }
+
+  .menus-heading {
+    font-size: 3rem;
+  }
+}

@@ -45,13 +45,10 @@ const Nav = () => {
     },
     initial: {
       opacity: 1,
-      y: 'Ovh'
     },
     animation: {
-      opacity: 0.9,
-      y: '-8vh',
+      opacity: 0.5,
       transition: {
-        delay: 5,
         duration: 2,
       }
     }
@@ -59,15 +56,12 @@ const Nav = () => {
 
   const restaurantNameVariants = {
     initial: {
-      opacity: 1,
-      y: '0vh'
+      opacity: 0,
     },
     animation: {
-      opacity: 0,
-      y: '-10vh',
+      opacity: 1,
       transition: {
-        delay: 1,
-        duration: 5,
+        duration: 3,
       }
     }
   }
@@ -80,9 +74,8 @@ const Nav = () => {
         variants={restaurantNameVariants}
         initial="initial"
         animate="animation"
-        >RESTAURANT NAME
+        >RESTAURANT
         </motion.h1>
-      </AnimatePresence>
       <div className="header-btns">
         <Link to="/about">
           <motion.p
@@ -91,7 +84,8 @@ const Nav = () => {
           whileHover="hovering"
           whileTap="clicked"
           initial="initial"
-          animate="animation">
+          animate="animation"
+          exit="exit">
             About
           </motion.p>
         </Link>
@@ -117,6 +111,7 @@ const Nav = () => {
           </motion.p>
         </Link>
       </div>
+      </AnimatePresence>
     </nav>
   )
 }
